@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tacos-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tacos
+  template:
+    metadata:
+      labels:
+        app: tacos
+    spec:
+      containers:
+      - name: tacos
+        image: valentin117/eatsout:tacos
+        ports:
+        - containerPort: 80
